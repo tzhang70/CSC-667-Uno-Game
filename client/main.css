@@ -1,0 +1,221 @@
+body {
+  --bg-color: #e4b829;
+  background-color: var(--bg-color);
+  margin: 0;
+  padding: 0;
+}
+
+canvas {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+#gameDiv {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+#options {
+  background-color: var(--bg-color);
+  padding: 20px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+#canvasHolder {
+  background-color: var(--bg-color);
+  padding: 10px;
+}
+
+#gameDiv button {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  width: 100%;
+}
+
+#gameDiv button:hover {
+  background-color: #187c1c;
+}
+
+#bottom {
+  margin-top: auto;
+}
+
+@media (max-width: 1000px) {
+  #gameDiv {
+    flex-direction: column;
+  }
+
+  #options,
+  #canvasHolder,
+  #gameDiv {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  #bottom {
+    order: -1;
+  }
+}
+
+#colorChooseHolder {
+  position: absolute;
+  width: 750px;
+  height: 750px;
+  left: 20px;
+  top: 20px;
+  z-index: 100;
+  visibility: hidden;
+}
+
+#colorChoose {
+  position: relative;
+  width: 120px;
+  top: 65%;
+  padding: 15px;
+  background-color: gray;
+  border: 2px solid darkgray;
+  margin: auto auto;
+  z-index: 100;
+  font-weight: bold;
+  visibility: hidden;
+}
+
+#colorChoose button {
+  width: 30px;
+  height: 30px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#colorChoose button:nth-of-type(1) {
+  background-color: red;
+}
+#colorChoose button:nth-of-type(2) {
+  background-color: lime;
+}
+#colorChoose button:nth-of-type(3) {
+  background-color: blue;
+}
+#colorChoose button:nth-of-type(4) {
+  background-color: yellow;
+}
+
+#chatHistory {
+  background: #ffed84;
+  width: 100%;
+  height: 250px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  text-align: left;
+  padding: 3px;
+}
+
+#chatInput {
+  width: 100%;
+  padding: 2px;
+  text-decoration: none;
+}
+
+/*Login and Register CSS*/
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+form {
+  border: 3px solid #f1f1f1;
+  margin: auto;
+  width: 70%;
+}
+#logout{
+  margin: 10px auto!important; 
+  width:70%;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+#btnLogin {
+  background-color: #1f3e39;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+#btnRegister {
+  background-color: #4f68ba;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover,
+input[type="button"]:hover {
+  opacity: 0.8;
+}
+
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+.container {
+  padding: 16px;
+  max-width: 70%;
+  margin: auto;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+    display: block;
+    float: none;
+  }
+  .cancelbtn {
+    width: 100%;
+  }
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Uno Multiplayer</title>
+    <meta name="viewport" content="width=750, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="/client/main.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="/client/favicon.ico"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+</head>
+<body>
+    <div id="gameDiv">
+        
+        <div id="canvasHolder"><canvas id="game"></canvas></div>
+        <div id="options">
+            <div>
+                <form action="/logout" method="get" id='logout'>
+                    <button type="submit" style="background-color: red; ">logout</button>
+                </form>
+            </div>  
+            <div id="host" style='display: none'>
+                <span>You are host!</span><br>
+                <button id="start" onclick="hostStart()">Start game</button>
+            </div>
+            <div id="chat">
+                <div id="chatHistory"></div>
+                <input type="text" placeholder="Enter a message and press enter" id="chatInput">
+            </div>
+            <div id="bottom">
+                <button id="take" onclick="takeCard()" style="visibility: hidden">Take a card</button>
+                <button id="pass" onclick="pass()" style="visibility: hidden">Pass</button>
+                <button id="uno" onclick="uno()" style="visibility: hidden">Uno!</button>
+            </div>
+        </div>
+        
+    </div>
+    <div id="colorChooseHolder">
+        <div id="colorChoose">Select color<br>
+            <button onclick="selectColor(0)"></button><button onclick="selectColor(1)"></button><button onclick="selectColor(2)"></button><button onclick="selectColor(3)"></button>
+        </div>
+    </div>
+    <script>
+        //Check if Logged in
+        let isLoggedIn = (getCookie("_id") != null);
+        if(isLoggedIn)
+        {
+            //alert("Logged In");
+        }
+        else
+        {
+            document.location.href = "/client/login.html";
+        }
+
+        function getCookie(name) {
+            var dc = document.cookie;
+            var prefix = name + "=";
+            var begin = dc.indexOf("; " + prefix);
+            if (begin == -1) {
+                begin = dc.indexOf(prefix);
+                if (begin != 0) return null;
+            }
+            else
+            {
+                begin += 2;
+                var end = document.cookie.indexOf(";", begin);
+                if (end == -1) {
+                end = dc.length;
+                }
+            }
+            // because unescape has been deprecated, replaced with decodeURI
+            //return unescape(dc.substring(begin + prefix.length, end));
+            return decodeURI(dc.substring(begin + prefix.length, end));
+        } 
+    </script>
+    <script src="/client/classes.js"></script>
+    <script src="/client/game.js"></script>
+    <script src="/client/connection.js"></script>
+</body>
+</html>
